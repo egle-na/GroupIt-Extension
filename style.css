@@ -1,0 +1,230 @@
+:root {
+    --clr-primary-light: #fff;
+    --clr-primary-dark: #202124; /* google dark bg color */
+
+    --btn-spacing-list: 10px;
+}
+
+* { box-sizing:border-box; }
+
+body {
+    background: var(--clr-primary-dark);
+    color: var(--clr-primary-light);
+
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    line-height: 1.6;
+
+    width: fit-content;
+    padding: .5rem;
+
+    border-radius: 10px;
+    transition: background-color 250ms;
+}
+
+.dark {
+    background: var(--clr-primary-dark);
+    color: var(--clr-primary-light);
+}
+
+.light {
+    background: var(--clr-primary-light);
+    color: var(--clr-primary-dark);
+}
+
+p {
+    padding: 4px 1rem;
+}
+
+button {
+    background: none;
+
+    border: none;
+    border-radius: 10px;
+
+    font: inherit;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background-color 250ms;
+}
+
+svg {
+    width: 1.1rem;
+}
+
+.grid #render {
+    display: flex;
+    width: 260px;
+    flex-wrap: wrap;
+    margin-right: calc(var(--btn-spacing-list) * -1);
+}
+
+.group-container {
+    padding-bottom: var(--btn-spacing-list);
+}
+
+.group-btn-wrapper,
+.group-container {
+    display: flex;
+    align-items: center;
+}
+
+.list .button {
+    font-weight: 500;
+    margin-right: 1rem;
+    height: 28px;
+    width: 260px;
+}
+
+.grid .button {
+    width: 55px;
+    height: 55px;
+
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    margin-right: var(--btn-spacing-list);
+}
+
+.grid .group-container .group-btn-wrapper {
+    display: none;
+}
+
+.group-btn-wrapper button {
+    padding: 2px 5px;
+    color: #fff;
+    height: 28px;
+    opacity: .5;
+    transition: opacity 250ms;
+}
+
+/* Group control buttons */
+.light .group-btn-wrapper button {
+    color: var(--clr-primary-dark);
+}
+
+.group-container:hover .group-btn-wrapper button {
+    opacity: 1;
+}
+
+.group-btn-wrapper button:not(:last-child) {
+    margin-right: .5rem;
+}
+
+/* add group btn */
+
+.group-color--add {
+    margin-bottom: var(--btn-spacing-list);
+    padding-top: 0;
+    transition: border-color 250ms;
+}
+
+.grid .group-color--add {
+    padding: 5px 7px 0 6px;
+}
+
+.group-color--add:hover {
+    border-color: currentColor;
+}
+
+/* group button's colors */
+
+/* dark mode */
+.dark .group-color--grey      { background: #DADCE0; }
+.dark .group-color--blue      { background: #8AB4F8; }
+.dark .group-color--red       { background: #F28B82; }
+.dark .group-color--yellow    { background: #FDD663; }
+.dark .group-color--green     { background: #81C995; }
+.dark .group-color--pink      { background: #FF8BCB; }
+.dark .group-color--purple    { background: #C58AF9; }
+.dark .group-color--cyan      { background: #78D9EC; }
+.dark .group-color--orange    { background: #FCAD70; }
+.dark .group-color--add {
+    border: #868686 dashed 2px;
+    color: #fff;
+}
+
+/* light mode */
+.light .group-color--grey      { background: #5F6368; color: #fff; }
+.light .group-color--blue      { background: #1A73E8; color: #fff; }
+.light .group-color--red       { background: #D93025;  color: #fff;}
+.light .group-color--yellow    { background: #F9AB00; }
+.light .group-color--green     { background: #188038;  color: #fff;}
+.light .group-color--pink      { background: #D01884;  color: #fff;}
+.light .group-color--purple    { background: #A142F4;  color: #fff;}
+.light .group-color--cyan      { background: #007B83;  color: #fff;}
+.light .group-color--orange    { background: #FA903E; } /* make button text color white, except for the yellow ones */
+.light .group-color--add {
+    border: #cbcbcb dashed 2px;
+    color: var(--clr-primary-dark);
+}
+
+/* Additional button container */
+.btn-wrapper-info {
+    margin-left: auto;
+    margin-bottom: -.5rem;
+}
+
+.btn-wrapper-info button {
+    color: #909090;
+}
+
+.btn-wrapper-info button:hover {
+    opacity: 1;
+}
+
+/* additional icons */
+.feather-list {
+    transform: rotateY(180deg);
+    margin: 0;
+}
+
+.dark .feather-moon {display: none;}
+.light .feather-sun {display: none;}
+
+.grid .feather-grid {display: none;}
+.list .feather-list {display: none;}
+
+
+/* Message Container */
+#message-container {
+    display: none;
+    position: absolute;
+    bottom: 8px;
+    left:50%;
+    transform: translateX(-50%);
+    width:fit-content;
+
+    background: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .85);
+}
+
+#message-container p {
+    padding: 0 1.75rem;
+}
+
+.light #message-container {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .35);
+}
+
+.visible {
+    display: initial !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 3px;
+}
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(145, 145, 145, 0.22);
+    border-radius: 3px;
+}
