@@ -11,7 +11,8 @@
   "permissions": [
       "tabs",
       "tabGroups",
-      "storage"
+      "storage",
+      "unlimitedStorage"
   ],
 
   "author": "Pilna Tylos"

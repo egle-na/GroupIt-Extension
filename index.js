@@ -9,7 +9,7 @@ const infoBtn = document.getElementById("info-btn");
 
 // get data from chrome storage
 let myGroups = [];
-chrome.storage.sync.get(null, (result) => {
+chrome.storage.local.get(null, (result) => {
     if (result.colorMode === "light") toggleDarkMode();
     if (result.layout === "grid") toggleLayout();
 
@@ -135,7 +135,7 @@ function addGroup() {
 }
 
 function storeData() {
-    chrome.storage.sync.set({ myGroups });
+    chrome.storage.local.set({ myGroups });
 }
 
 // other functions
@@ -144,7 +144,7 @@ function toggleLayout() {
     layoutContainer.classList.toggle("grid");
 
     let layout = layoutContainer.classList.contains("list") ? "list" : "grid";
-    chrome.storage.sync.set({ layout });
+    chrome.storage.local.set({ layout });
 }
 
 function toggleDarkMode() {
@@ -152,11 +152,11 @@ function toggleDarkMode() {
     document.body.classList.toggle("light");
 
     let colorMode =  document.body.classList.contains("dark") ? "dark" : "light";
-    chrome.storage.sync.set({ colorMode });
+    chrome.storage.local.set({ colorMode });
 }
 
 function toggleInfoContainer(){
-    window.open("https://developer.chrome.com/docs/extensions/reference/tabs/#method-query", "_blank");
+    window.open("https://github.com/egle-na/GroupIt-Extension", "_blank");
 }
 
 function showMessage(message){
